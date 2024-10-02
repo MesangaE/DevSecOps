@@ -33,7 +33,7 @@
 - Clone your application's code repository onto the EC2 instance:
     
     ```bash
-    https://github.com/MesangaE/DevSecOps.git
+    git clone https://github.com/MesangaE/DevSecOps.git
     ```
     
 
