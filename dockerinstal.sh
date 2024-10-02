@@ -34,7 +34,7 @@ sudo dpkg -i ./containerd.io_<version>_<arch>.deb \
 
 #create a docker group and add the user to it to pass commnands without sudo
 sudo groupadd docker
-sudo usermod -aG docker $USER
+sudo usermod -aG docker ubuntu
 
 #activate changes to group
 newgrp docker
@@ -46,3 +46,6 @@ sudo systemctl status docker
 
 #verify that installation was successful
 sudo docker run hello-world
+
+# setting the buildkit env varibale build docker image
+DOCKER_BUILDKIT=1 docker build .

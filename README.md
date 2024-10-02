@@ -14,13 +14,9 @@
   <p align="center">Home Page</p>
 </div>
 
-# **Youtube Video for step by step Demonstration!**
+# **Check the original author's video**
 [![Video Tutorial](https://img.youtube.com/vi/g8X5AoqCJHc/0.jpg)](https://youtu.be/g8X5AoqCJHc)
 
-
-## Susbcribe:
-[https://www.youtube.com/@cloudchamp?
-](https://www.youtube.com/@cloudchamp?sub_confirmation=1)
 
 # Deploy Netflix Clone on Cloud using Jenkins - DevSecOps Project!
 
@@ -28,7 +24,7 @@
 
 **Step 1: Launch EC2 (Ubuntu 22.04):**
 
-- Provision an EC2 instance on AWS with Ubuntu 22.04.
+- Provision an EC2 instance on AWS with Ubuntu 22.04. I used terraform instead of the console
 - Connect to the instance using SSH.
 
 **Step 2: Clone the Code:**
@@ -37,27 +33,23 @@
 - Clone your application's code repository onto the EC2 instance:
     
     ```bash
-    git clone https://github.com/N4si/DevSecOps-Project.git
+    git clone https://github.com/MesangaE/DevSecOps-Project.git
     ```
     
 
 **Step 3: Install Docker and Run the App Using a Container:**
 
-- Set up Docker on the EC2 instance:
+- Set up Docker on the EC2 instance: i ran a bash script instead of manually running the commands
     
     ```bash
-    
-    sudo apt-get update
-    sudo apt-get install docker.io -y
-    sudo usermod -aG docker $USER  # Replace with your system's username, e.g., 'ubuntu'
-    newgrp docker
-    sudo chmod 777 /var/run/docker.sock
+    bash dockerinstall.sh
+    bash dockerbuildx.sh
     ```
     
 - Build and run your application using Docker containers:
     
     ```bash
-    docker build -t netflix .
+    docker buildx build -d netflix .
     docker run -d --name netflix -p 8081:80 netflix:latest
     
     #to delete
